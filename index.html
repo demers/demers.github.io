@@ -47,8 +47,10 @@
 <a name="pourquoi-sl4a" class="anchor" href="#pourquoi-sl4a"><span class="octicon octicon-link"></span></a>Pourquoi SL4A?</h2>
 
 <ul>
-<li>Mes étudiants ne connaissaient pas le langage de Android: Java</li>
-<li>Python est un langage simple, pédagogique, puissant et non-typé.</li>
+<li>Mes étudiants ne connaissaient pas le langage de base de Android: Java</li>
+<li>Il fallait un langage alternatif</li>
+<li>
+<strong>Python</strong> est un langage simple, pédagogique, puissant et non-typé.</li>
 </ul><h2>
 <a name="informations-g%C3%A9n%C3%A9rales-sur-android" class="anchor" href="#informations-g%C3%A9n%C3%A9rales-sur-android"><span class="octicon octicon-link"></span></a>Informations générales sur Android</h2>
 
@@ -57,7 +59,7 @@
 <h2>
 <a name="%C3%89tapes-dinstallation" class="anchor" href="#%C3%89tapes-dinstallation"><span class="octicon octicon-link"></span></a>Étapes d'installation</h2>
 
-<p>J'ai 2 clés USB pour réduire le temps de cet étape.</p>
+<p>J'ai 2 clés USB pour réduire le temps de téléchargement.</p>
 
 <h3>
 <a name="%C3%89tape-1-installer-le-sdk-de-android" class="anchor" href="#%C3%89tape-1-installer-le-sdk-de-android"><span class="octicon octicon-link"></span></a>Étape 1: Installer le SDK de Android</h3>
@@ -65,8 +67,51 @@
 <ol>
 <li>Téléchargez le SDK à <a href="http://developer.android.com/sdk/">http://developer.android.com/sdk/</a>
 </li>
-<li>Décompressez le fichier dans votre compte.</li>
-<li>
+<li>Décompressez le fichier dans le dossier /tmp</li>
+<li>Déplacez-vous dans le dossier créé et déplacez le dossier "sdk" dans votre compte utilisateur.</li>
+<li>Configurez votre variable $PATH dans votre fichier ~/.bashrc en ajoutant cette ligne
+<code>
+export PATH=~/sdk/platform-tools/:$PATH
+</code>
+</li>
+<li>Fermez votre console et ouvrez-en une autre.</li>
+<li>Tapez la commande pour savoir si le changement a fonctionné:
+<code>bash
+adb devices
+</code>
+</li>
+</ol><h3>
+<a name="%C3%89tape-2-installer-eclipse-et-le-plugin-android" class="anchor" href="#%C3%89tape-2-installer-eclipse-et-le-plugin-android"><span class="octicon octicon-link"></span></a>Étape 2: Installer Eclipse et le plugin Android</h3>
+
+<ol>
+<li>Téléchargez Eclipse Standard à </li>
+<li>Dans le menu Help et l'option Install New Software, et le bouton New, tapez l'URL:
+<code>
+http://dl-ssl.google.com/android/eclipse
+</code>
+</li>
+<li>Cochez l'option Android SDK et les options nécessaires pour finaliser l'installation.</li>
+<li>Dans le menu <em>Window/Preference/Android</em>, vérifiez la présence du chemin d'accès dans le SDK location qui doit être le répertoire vers android-sdk (normalement le chemin <strong>~/sdk</strong>)</li>
+<li> Normalement, dans le menu Window, il devrait y avoir l'option Android SDK Manager.</li>
+<li>Choisissez cette option et cochez Android 4.3 (API 18) et Android 4.0.3 (API 15).</li>
+<li>Vérifiez que pour Android 4.0.3 API 15, vous avez coché les <em>Sources for Android SDK</em>. </li>
+<li>L'installation peut prendre du temps.</li>
+<li>Sous Eclipse, allez copier le chemin d'accès dans le menu <em>Window/Preferences/Android/SDK Location</em> Dans le menu <em>Window/Preferences/Java/Build Path/Classpath</em>, ajoutez une variable appelé <em>ANDROID</em>SDK_ et entrez le chemin d'accès précédent. Ajoutez-y le chemin /sources/android-15 pour que ça donne comme suit (ou l'équivalent): 
+<code>
+~/sdk/sources/android-15/
+</code>
+</li>
+</ol><h3>
+<a name="%C3%89tape-3-installer-le-plugin-pour-programmer-en-python" class="anchor" href="#%C3%89tape-3-installer-le-plugin-pour-programmer-en-python"><span class="octicon octicon-link"></span></a>Étape 3: Installer le plugin pour programmer en Python.</h3>
+
+<ol>
+<li>Partez Eclipse.</li>
+<li>Dans le menu Help et l'option Install New Software, et le bouton New, tapez l'URL:
+<code>
+http://pydev.org/updates
+</code>
+</li>
+<li>Complétez l'installation.</li>
 </ol><h2>
 <a name="premier-exemple" class="anchor" href="#premier-exemple"><span class="octicon octicon-link"></span></a>Premier exemple</h2>
       </section>
