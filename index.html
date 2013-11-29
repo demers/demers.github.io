@@ -52,6 +52,12 @@
 <li>
 <strong>Python</strong> est un langage simple, pédagogique, puissant et non-typé.</li>
 </ul><h2>
+<a name="suppositions-pour-la-suite" class="anchor" href="#suppositions-pour-la-suite"><span class="octicon octicon-link"></span></a>Suppositions pour la suite</h2>
+
+<ul>
+<li>Vous avez une installation Linux sur votre ordinateur (sinon, on va faire avec!)</li>
+<li>
+</ul><h2>
 <a name="informations-g%C3%A9n%C3%A9rales-sur-android" class="anchor" href="#informations-g%C3%A9n%C3%A9rales-sur-android"><span class="octicon octicon-link"></span></a>Informations générales sur Android</h2>
 
 <p>Présentation Slideshare: <a href="http://fr.slideshare.net/ranjith2011/introduction-to-android-7872075">http://fr.slideshare.net/ranjith2011/introduction-to-android-7872075</a></p>
@@ -84,7 +90,15 @@ adb devices
 <a name="%C3%89tape-2-installer-eclipse-et-le-plugin-android" class="anchor" href="#%C3%89tape-2-installer-eclipse-et-le-plugin-android"><span class="octicon octicon-link"></span></a>Étape 2: Installer Eclipse et le plugin Android</h3>
 
 <ol>
-<li>Téléchargez Eclipse Standard à </li>
+<li>Installez Java SDK de Oracle:
+<code>
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java7-installer
+</code>
+</li>
+<li>Téléchargez Eclipse Standard à <a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a>
+</li>
 <li>Dans le menu Help et l'option Install New Software, et le bouton New, tapez l'URL:
 <code>
 http://dl-ssl.google.com/android/eclipse
@@ -111,7 +125,10 @@ http://dl-ssl.google.com/android/eclipse
 http://pydev.org/updates
 </code>
 </li>
-<li>Complétez l'installation.</li>
+<li>Complétez l'installation du plugin en cochant PyDev.</li>
+<li>Ouvrir le menu 'Window' et 'Preferences'.</li>
+<li>Choisir l'option 'PyDev' et 'Interpreter - Python'.</li>
+<li>Cliquer 'New' pour ajouter un interpréteur Python qui se trouve à /usr/bin/python</li>
 </ol><h2>
 <a name="premier-exemple" class="anchor" href="#premier-exemple"><span class="octicon octicon-link"></span></a>Premier exemple</h2>
       </section>
