@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Demers.github.io : Présentations" />
+    <meta name="description" content="demers.github.io : Présentations" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Demers.github.io</title>
+    <title>demers.github.io</title>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/demers">View on GitHub</a>
 
-          <h1 id="project_title">Demers.github.io</h1>
+          <h1 id="project_title">demers.github.io</h1>
           <h2 id="project_tagline">Présentations</h2>
 
         </header>
@@ -82,23 +82,22 @@ export PATH=~/sdk/platform-tools/:$PATH
 </code>
 </li>
 <li>Fermez votre console et ouvrez-en une autre.</li>
-<li>Tapez la commande pour savoir si le changement a fonctionné:
-<code>bash
-adb devices
-</code>
-</li>
-</ol><h3>
+<li>Tapez la commande pour savoir si le changement a fonctionné:</li>
+</ol><div class="highlight highlight-bash"><pre>adb devices
+</pre></div>
+
+<h3>
 <a name="%C3%89tape-2-installer-eclipse-et-le-plugin-android" class="anchor" href="#%C3%89tape-2-installer-eclipse-et-le-plugin-android"><span class="octicon octicon-link"></span></a>Étape 2: Installer Eclipse et le plugin Android</h3>
 
-<ol>
+<ul>
 <li>Installez Open Java en cherchant apt://openjdk-7-jdk</li>
-<li>Si vous avez des problèmes, vous pouvez installer SDK de Oracle par les commandes suivantes:
-<code>
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install oracle-java7-installer
-</code>
-</li>
+<li>Si vous avez des problèmes, vous pouvez installer SDK de Oracle par les commandes suivantes:</li>
+</ul><pre><code>   sudo add-apt-repository ppa:webupd8team/java
+   sudo apt-get update
+   sudo apt-get install oracle-java7-installer
+</code></pre>
+
+<ul>
 <li>Précédemment, vous avez installé Eclipse dans votre compte dans le dossier ~/eclipse</li>
 <li>Partez Eclipse par la commande ~/eclipse/eclipse</li>
 <li>Dans le menu <em>Window/Preference/Android</em>, vérifiez la présence du chemin d'accès dans le SDK location qui doit être le répertoire vers android-sdk (normalement le chemin <strong>~/sdk</strong>)</li>
@@ -111,7 +110,7 @@ sudo apt-get install oracle-java7-installer
 ~/sdk/sources/android-15/
 </code>
 </li>
-</ol><h3>
+</ul><h3>
 <a name="%C3%89tape-3-installer-le-plugin-pour-programmer-en-python" class="anchor" href="#%C3%89tape-3-installer-le-plugin-pour-programmer-en-python"><span class="octicon octicon-link"></span></a>Étape 3: Installer le plugin pour programmer en Python.</h3>
 
 <ol>
@@ -138,13 +137,98 @@ http://pydev.org/updates
 </li>
 <li>Partez Eclipse en ligne de commande comme suit: 
 <code>
-~/eclipse/eclipse.exe -clean
+~/eclipse/eclipse -clean
 </code>
+</li>
+<li>Pour en savoir plus, consultez <a href="http://pydev.org/manual_101_install.html">http://pydev.org/manual_101_install.html</a>
 </li>
 </ol>
 </li>
 </ol><h2>
-<a name="premier-exemple" class="anchor" href="#premier-exemple"><span class="octicon octicon-link"></span></a>Premier exemple</h2>
+<a name="%C3%89tape-4-d%C3%A9marrez-un-premier-%C3%A9mulateur" class="anchor" href="#%C3%89tape-4-d%C3%A9marrez-un-premier-%C3%A9mulateur"><span class="octicon octicon-link"></span></a>Étape 4: Démarrez un premier émulateur</h2>
+
+<ol>
+<li>Dans le menu Window/Android Virtual Device manager, faites New AVD</li>
+<li>Choisissez les options voulues.</li>
+<li>Démarrez l'émulateur.</li>
+<li>Voir si l'émulateur est bien accessible en tapant
+<code>
+adb devices
+</code>
+</li>
+</ol><h2>
+<a name="%C3%89tape-5-cr%C3%A9er-un-projet-de-d%C3%A9veloppement-python-sous-eclipse" class="anchor" href="#%C3%89tape-5-cr%C3%A9er-un-projet-de-d%C3%A9veloppement-python-sous-eclipse"><span class="octicon octicon-link"></span></a>Étape 5: Créer un projet de développement Python sous Eclipse</h2>
+
+<ul>
+<li>Créez un nouveau projet PyDev.  Choisissez l'option de créer un dossier "src".</li>
+<li>Par le clique-droit, créez un module PyDev 'Main' appelé <strong>launch_app.py</strong> avec le code suivant: </li>
+</ul><div class="highlight highlight-python"><pre><span class="c">#!/usr/bin/env python</span>
+
+<span class="sd">'''</span>
+<span class="sd">@author: Pro Android Python with SL4A</span>
+<span class="sd">'''</span>
+
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">ADB</span> <span class="o">=</span> <span class="s">r'C:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe'</span>
+<span class="n">ADB</span> <span class="o">=</span> <span class="s">'/home/linux/android/android-sdks/platform-tools/adb'</span>
+<span class="n">APPLICATION</span> <span class="o">=</span> <span class="s">'androidtest.py'</span>
+<span class="n">TARGET</span> <span class="o">=</span> <span class="s">'/sdcard/sl4a/scripts/'</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c"># Upload the application.   </span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="n">ADB</span><span class="p">,</span> <span class="s">'-e'</span><span class="p">,</span> <span class="s">'push'</span><span class="p">,</span> <span class="n">APPLICATION</span><span class="p">,</span> <span class="n">TARGET</span> <span class="o">+</span> <span class="n">APPLICATION</span><span class="p">])</span>
+
+    <span class="c"># Launch the application.</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="n">ADB</span><span class="p">,</span> <span class="s">'-e'</span><span class="p">,</span> <span class="s">'shell'</span><span class="p">,</span> <span class="s">'am'</span><span class="p">,</span> <span class="s">'start'</span><span class="p">,</span>
+          <span class="s">'-a'</span><span class="p">,</span> <span class="s">'com.googlecode.android_scripting.action.LAUNCH_BACKGROUND_SCRIPT'</span><span class="p">,</span>
+          <span class="s">'-n'</span><span class="p">,</span>
+           <span class="s">'com.googlecode.android_scripting/.activity.ScriptingLayerServiceLauncher'</span><span class="p">,</span>
+          <span class="s">'-e'</span><span class="p">,</span> <span class="s">'com.googlecode.android_scripting.extra.SCRIPT_PATH'</span><span class="p">,</span>
+          <span class="n">TARGET</span> <span class="o">+</span> <span class="n">APPLICATION</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<ul>
+<li>Il faut reconfigurer les variables ADB (et aussi APPLICATION).</li>
+<li>Créez un module 'Main' avec le code suivant: </li>
+</ul><pre><code>import android
+droid = android.Android()
+droid.makeToast('Hello, Android!')
+</code></pre>
+
+<ul>
+<li>Exécutez le script launch_app.py (Run PyDev). </li>
+</ul><h2>
+<a name="des-exemples-de-code" class="anchor" href="#des-exemples-de-code"><span class="octicon octicon-link"></span></a>Des exemples de code</h2>
+
+<h3>
+<a name="premier-exemple" class="anchor" href="#premier-exemple"><span class="octicon octicon-link"></span></a>Premier exemple</h3>
+
+<div class="highlight highlight-python"><pre><span class="kn">import</span> <span class="nn">android</span>
+<span class="n">droid</span> <span class="o">=</span> <span class="n">android</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetInput</span><span class="p">(</span><span class="s">"Hello!"</span><span class="p">,</span> <span class="s">"What is your name?"</span><span class="p">)</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">makeToast</span><span class="p">(</span><span class="s">"Hello, </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">name</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+<h3>
+<a name="deuxi%C3%A8me-exemple" class="anchor" href="#deuxi%C3%A8me-exemple"><span class="octicon octicon-link"></span></a>Deuxième exemple</h3>
+
+<div class="highlight highlight-python"><pre><span class="sd">"""Speak the time."""</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">'T.V. Raman &lt;raman@google.com&gt;'</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">'Copyright (c) 2009, Google Inc.'</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s">'Apache License, Version 2.0'</span>
+
+<span class="kn">import</span> <span class="nn">android</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">droid</span> <span class="o">=</span> <span class="n">android</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">ttsSpeak</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%_I %M %p on %A, %B %_e, %Y "</span><span class="p">))</span>
+</pre></div>
       </section>
     </div>
 
