@@ -56,7 +56,7 @@
 
 <ul>
 <li>Vous avez une installation Linux sur votre ordinateur (sinon, on va faire avec!)</li>
-<li>
+<li>Vous avez <strong>Python 2.7</strong> d'installé dans votre système (par défaut).</li>
 </ul><h2>
 <a name="informations-g%C3%A9n%C3%A9rales-sur-android" class="anchor" href="#informations-g%C3%A9n%C3%A9rales-sur-android"><span class="octicon octicon-link"></span></a>Informations générales sur Android</h2>
 
@@ -74,7 +74,8 @@
 <li>Téléchargez le SDK à <a href="http://developer.android.com/sdk/">http://developer.android.com/sdk/</a>
 </li>
 <li>Décompressez le fichier dans le dossier /tmp</li>
-<li>Déplacez-vous dans le dossier créé et déplacez le dossier "sdk" dans votre compte utilisateur.</li>
+<li>Rendez-vous dans le dossier créé et déplacez le dossier "sdk" dans votre compte utilisateur.</li>
+<li>Faites de même pour le dossier "eclipse" dans votre compte utilisateur.</li>
 <li>Configurez votre variable $PATH dans votre fichier ~/.bashrc en ajoutant cette ligne
 <code>
 export PATH=~/sdk/platform-tools/:$PATH
@@ -90,27 +91,22 @@ adb devices
 <a name="%C3%89tape-2-installer-eclipse-et-le-plugin-android" class="anchor" href="#%C3%89tape-2-installer-eclipse-et-le-plugin-android"><span class="octicon octicon-link"></span></a>Étape 2: Installer Eclipse et le plugin Android</h3>
 
 <ol>
-<li>Installez Java SDK de Oracle:
+<li>Installez Open Java en cherchant apt://openjdk-7-jdk</li>
+<li>Si vous avez des problèmes, vous pouvez installer SDK de Oracle par les commandes suivantes:
 <code>
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java7-installer
 </code>
 </li>
-<li>Téléchargez Eclipse Standard à <a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a>
-</li>
-<li>Dans le menu Help et l'option Install New Software, et le bouton New, tapez l'URL:
-<code>
-http://dl-ssl.google.com/android/eclipse
-</code>
-</li>
-<li>Cochez l'option Android SDK et les options nécessaires pour finaliser l'installation.</li>
+<li>Précédemment, vous avez installé Eclipse dans votre compte dans le dossier ~/eclipse</li>
+<li>Partez Eclipse par la commande ~/eclipse/eclipse</li>
 <li>Dans le menu <em>Window/Preference/Android</em>, vérifiez la présence du chemin d'accès dans le SDK location qui doit être le répertoire vers android-sdk (normalement le chemin <strong>~/sdk</strong>)</li>
-<li> Normalement, dans le menu Window, il devrait y avoir l'option Android SDK Manager.</li>
+<li>Normalement, dans le menu Window, il devrait y avoir l'option Android SDK Manager.</li>
 <li>Choisissez cette option et cochez Android 4.3 (API 18) et Android 4.0.3 (API 15).</li>
 <li>Vérifiez que pour Android 4.0.3 API 15, vous avez coché les <em>Sources for Android SDK</em>. </li>
 <li>L'installation peut prendre du temps.</li>
-<li>Sous Eclipse, allez copier le chemin d'accès dans le menu <em>Window/Preferences/Android/SDK Location</em> Dans le menu <em>Window/Preferences/Java/Build Path/Classpath</em>, ajoutez une variable appelé <em>ANDROID</em>SDK_ et entrez le chemin d'accès précédent. Ajoutez-y le chemin /sources/android-15 pour que ça donne comme suit (ou l'équivalent): 
+<li>Sous Eclipse, allez copier le chemin d'accès dans le menu <em>Window/Preferences/Android/SDK Location</em> Dans le menu <em>Window/Preferences/Java/Build Path/Classpath</em>, ajoutez une variable appelé <em>ANDROID</em>SDK_ et entrez le chemin d'accès précédent (coller). Ajoutez-y le chemin <em>/sources/android-15</em> pour que ça donne comme suit (ou l'équivalent): 
 <code>
 ~/sdk/sources/android-15/
 </code>
@@ -129,6 +125,24 @@ http://pydev.org/updates
 <li>Ouvrir le menu 'Window' et 'Preferences'.</li>
 <li>Choisir l'option 'PyDev' et 'Interpreter - Python'.</li>
 <li>Cliquer 'New' pour ajouter un interpréteur Python qui se trouve à /usr/bin/python</li>
+<li>Si l'étape de la puce (2) ne fonctionne pas, vous pouvez suivre les étapes suivantes.
+
+<ol>
+<li>Téléchargez PyDev à <a href="http://sourceforge.net/projects/pydev/files/">http://sourceforge.net/projects/pydev/files/</a>
+</li>
+<li>Décompressez le fichier ZIP dans le dossier ~/eclipse</li>
+<li>Assurez-vous que Eclipse est fermé.</li>
+<li>Déplacez le contenu du dossier <strong>plugins</strong> (au départ dans le dossier PyDev) dans le dossier <em>~/eclipse/plugins</em>
+</li>
+<li>Déplacez le contenu du dossier <strong>features</strong> (au départ dans le dossier PyDev) dans le dossier <em>~/eclipse/features</em>
+</li>
+<li>Partez Eclipse en ligne de commande comme suit: 
+<code>
+~/eclipse/eclipse.exe -clean
+</code>
+</li>
+</ol>
+</li>
 </ol><h2>
 <a name="premier-exemple" class="anchor" href="#premier-exemple"><span class="octicon octicon-link"></span></a>Premier exemple</h2>
       </section>
