@@ -230,7 +230,21 @@ droid.makeToast('Hello, Android!')
 <span class="n">droid</span><span class="o">.</span><span class="n">ttsSpeak</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%_I %M %p on %A, %B %_e, %Y "</span><span class="p">))</span>
 </pre></div>
 
+<h2>
+<a name="troisi%C3%A8me-exemple" class="anchor" href="#troisi%C3%A8me-exemple"><span class="octicon octicon-link"></span></a>Troisième exemple</h2>
+
+<pre><code>title = 'User Interface'
+message = 'Welcome to the SL4A integration test.'
+droid.dialogCreateAlert(title, message)
+droid.dialogSetPositiveButtonText('Continue')
+droid.dialogShow()
+response = droid.dialogGetResponse().result
+return response['which'] == 'positive'
+</code></pre>
+
 <p>D'autres exemples disponibles dans ce fichier ZIP: <a href="http://code.google.com/p/android-scripting/downloads/detail?name=python_scripts_r8.zip&amp;can=2">http://code.google.com/p/android-scripting/downloads/detail?name=python_scripts_r8.zip&amp;can=2</a></p>
+
+<p>Consultez surtout le programme <strong>test.py</strong></p>
       </section>
     </div>
 
