@@ -233,13 +233,13 @@ droid.makeToast('Hello, Android!')
 <h2>
 <a name="troisi%C3%A8me-exemple" class="anchor" href="#troisi%C3%A8me-exemple"><span class="octicon octicon-link"></span></a>Troisième exemple</h2>
 
-<pre><code>title = 'User Interface'
-message = 'Welcome to the SL4A integration test.'
-droid.dialogCreateAlert(title, message)
-droid.dialogSetPositiveButtonText('Continue')
-droid.dialogShow()
-response = droid.dialogGetResponse().result
-</code></pre>
+<div class="highlight highlight-python"><pre><span class="n">title</span> <span class="o">=</span> <span class="s">'User Interface'</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s">'Welcome to the SL4A integration test.'</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">dialogCreateAlert</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">dialogSetPositiveButtonText</span><span class="p">(</span><span class="s">'Continue'</span><span class="p">)</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">dialogShow</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetResponse</span><span class="p">()</span><span class="o">.</span><span class="n">result</span>
+</pre></div>
 
 <p>D'autres exemples disponibles dans ce fichier ZIP: <a href="http://code.google.com/p/android-scripting/downloads/detail?name=python_scripts_r8.zip&amp;can=2">http://code.google.com/p/android-scripting/downloads/detail?name=python_scripts_r8.zip&amp;can=2</a></p>
 
