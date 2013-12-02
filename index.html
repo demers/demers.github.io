@@ -27,7 +27,9 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
+        <p><strong>À Noter</strong>: Je suis à la préparation d'une machine virtuelle XUbuntu contenant toute la configuration expliquée ci-bas.</p>
+
+<h1>
 <a name="scripting-language-for-android-sl4a" class="anchor" href="#scripting-language-for-android-sl4a"><span class="octicon octicon-link"></span></a>Scripting Language for Android (SL4A)</h1>
 
 <p><img src="http://code.google.com/p/android-scripting/logo?cct=1380444037" alt="SL4A"></p>
@@ -38,6 +40,9 @@
 <a name="quelques-informations-sur-moi" class="anchor" href="#quelques-informations-sur-moi"><span class="octicon octicon-link"></span></a>Quelques informations sur moi</h2>
 
 <ul>
+<li>Mon nom est F.-Nicola Demers</li>
+<li>Pour me contacter, écrivez-moi au <a href="mailto:fndemers@gmail.com">fndemers@gmail.com</a>
+</li>
 <li>Je suis informaticien.</li>
 <li>Je suis enseignant au Cégep depuis 2000.</li>
 <li>Je travaille au Cégep de Sainte-Foy depuis 2007.</li>
@@ -52,7 +57,7 @@
 <li>
 <strong>Python</strong> est un langage simple, pédagogique, puissant et non-typé.</li>
 </ul><h2>
-<a name="suppositions-pour-la-suite" class="anchor" href="#suppositions-pour-la-suite"><span class="octicon octicon-link"></span></a>Suppositions pour la suite</h2>
+<a name="suppositions-pour-la-suite-de-ce-document" class="anchor" href="#suppositions-pour-la-suite-de-ce-document"><span class="octicon octicon-link"></span></a>Suppositions pour la suite de ce document</h2>
 
 <ul>
 <li>Vous avez une installation Linux sur votre ordinateur (sinon, on va faire avec!)</li>
@@ -144,8 +149,8 @@ http://pydev.org/updates
 </li>
 </ol>
 </li>
-</ol><h2>
-<a name="%C3%89tape-4-d%C3%A9marrez-un-premier-%C3%A9mulateur" class="anchor" href="#%C3%89tape-4-d%C3%A9marrez-un-premier-%C3%A9mulateur"><span class="octicon octicon-link"></span></a>Étape 4: Démarrez un premier émulateur</h2>
+</ol><h3>
+<a name="%C3%89tape-4-d%C3%A9marrez-un-premier-%C3%A9mulateur" class="anchor" href="#%C3%89tape-4-d%C3%A9marrez-un-premier-%C3%A9mulateur"><span class="octicon octicon-link"></span></a>Étape 4: Démarrez un premier émulateur</h3>
 
 <ol>
 <li>Dans le menu Window/Android Virtual Device manager, faites New AVD</li>
@@ -156,8 +161,31 @@ http://pydev.org/updates
 adb devices
 </code>
 </li>
-</ol><h2>
-<a name="%C3%89tape-5-cr%C3%A9er-un-projet-de-d%C3%A9veloppement-python-sous-eclipse" class="anchor" href="#%C3%89tape-5-cr%C3%A9er-un-projet-de-d%C3%A9veloppement-python-sous-eclipse"><span class="octicon octicon-link"></span></a>Étape 5: Créer un projet de développement Python sous Eclipse</h2>
+</ol><h3>
+<a name="%C3%89tape-5-installer-2-applications-sur-l%C3%A9mulateur" class="anchor" href="#%C3%89tape-5-installer-2-applications-sur-l%C3%A9mulateur"><span class="octicon octicon-link"></span></a>Étape 5: Installer 2 applications sur l'émulateur</h3>
+
+<ul>
+<li>Votre émulateur doit rouler pour installer les applications (évidemment).</li>
+<li>Téléchargez l'application suivante dans votre dossier personnel: <a href="http://code.google.com/p/android-scripting/downloads/detail?name=sl4a_r6.apk">http://code.google.com/p/android-scripting/downloads/detail?name=sl4a_r6.apk</a>
+</li>
+<li>Installez l'application par la commande suivante:</li>
+</ul><pre><code>adb install ~/sl4a_r6.apk
+</code></pre>
+
+<ul>
+<li>Dans l'émulateur, partez l'application en cliquant sur le bouton de l'application.</li>
+<li>Cliquez sur le bouton "Install Python".</li>
+<li>Téléchargez l'application suivante: <a href="http://code.google.com/p/android-scripting/downloads/detail?name=PythonForAndroid_r4.apk">http://code.google.com/p/android-scripting/downloads/detail?name=PythonForAndroid_r4.apk</a>
+</li>
+<li>Installez l'application par la commande suivante:</li>
+</ul><pre><code>adb install ~/PythonForAndroid_r4.apk
+</code></pre>
+
+<ul>
+<li>Dans l'émulateur, partez l'application en cliquant sur le bouton de l'application.</li>
+<li>Vous devez répondre à la question positivement.</li>
+</ul><h3>
+<a name="%C3%89tape-6-cr%C3%A9er-un-projet-de-d%C3%A9veloppement-python-sous-eclipse" class="anchor" href="#%C3%89tape-6-cr%C3%A9er-un-projet-de-d%C3%A9veloppement-python-sous-eclipse"><span class="octicon octicon-link"></span></a>Étape 6: Créer un projet de développement Python sous Eclipse</h3>
 
 <ul>
 <li>Créez un nouveau projet PyDev.  Choisissez l'option de créer un dossier "src".</li>
@@ -170,8 +198,8 @@ adb devices
 
 <span class="kn">import</span> <span class="nn">subprocess</span>
 
-<span class="n">ADB</span> <span class="o">=</span> <span class="s">r'C:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe'</span>
-<span class="n">ADB</span> <span class="o">=</span> <span class="s">'/home/linux/android/android-sdks/platform-tools/adb'</span>
+<span class="c">#ADB = r'C:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe'</span>
+<span class="n">ADB</span> <span class="o">=</span> <span class="s">'/home/android/android-sdks/platform-tools/adb'</span>
 <span class="n">APPLICATION</span> <span class="o">=</span> <span class="s">'androidtest.py'</span>
 <span class="n">TARGET</span> <span class="o">=</span> <span class="s">'/sdcard/sl4a/scripts/'</span>
 
@@ -193,7 +221,8 @@ adb devices
 </pre></div>
 
 <ul>
-<li>Il faut reconfigurer les variables ADB (et aussi APPLICATION).</li>
+<li>Il faut reconfigurer les variables ADB pour préciser l'endroit du programme adb.</li>
+<li>Il faut aussi reconfigurer les variables APPLICATION pour corriger le nom de votre script Python.</li>
 <li>Créez un module 'Main' avec le code suivant: </li>
 </ul><pre><code>import android
 droid = android.Android()
@@ -230,8 +259,8 @@ droid.makeToast('Hello, Android!')
 <span class="n">droid</span><span class="o">.</span><span class="n">ttsSpeak</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%_I %M %p on %A, %B %_e, %Y "</span><span class="p">))</span>
 </pre></div>
 
-<h2>
-<a name="troisi%C3%A8me-exemple" class="anchor" href="#troisi%C3%A8me-exemple"><span class="octicon octicon-link"></span></a>Troisième exemple</h2>
+<h3>
+<a name="troisi%C3%A8me-exemple" class="anchor" href="#troisi%C3%A8me-exemple"><span class="octicon octicon-link"></span></a>Troisième exemple</h3>
 
 <div class="highlight highlight-python"><pre><span class="n">title</span> <span class="o">=</span> <span class="s">'User Interface'</span>
 <span class="n">message</span> <span class="o">=</span> <span class="s">'Welcome to the SL4A integration test.'</span>
@@ -243,7 +272,7 @@ droid.makeToast('Hello, Android!')
 
 <p>D'autres exemples disponibles dans ce fichier ZIP: <a href="http://code.google.com/p/android-scripting/downloads/detail?name=python_scripts_r8.zip&amp;can=2">http://code.google.com/p/android-scripting/downloads/detail?name=python_scripts_r8.zip&amp;can=2</a></p>
 
-<p>Consultez surtout les exemples du programme <strong>test.py</strong></p>
+<p>Consultez surtout les exemples du programme <strong>test.py</strong> pour en savoir plus.</p>
       </section>
     </div>
 
